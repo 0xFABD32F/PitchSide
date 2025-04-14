@@ -1,0 +1,51 @@
+.green_button {
+    background-color: #4CAF50; 
+    width: 100%;
+    color: white; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.red_button {
+    background-color: #c74444; 
+    width: 100%;
+    color: white; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+.form_field {
+padding: 0.5rem; /* p-2 */
+border-radius: 2px; /* rounded */
+width: 66.6667%; /* w-2/3 */
+margin-left: auto; /* mx-auto (centré horizontalement) */
+margin-right: auto; /* mx-auto (centré horizontalement) */
+/* border: 2px solid white;  border-2 border-white */
+background-color: transparent; /* bg-transparent */
+}
+input {
+    background-color: #353335;
+    color: white;
+    border: 1px solid #555;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus {
+    border-color: white;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}

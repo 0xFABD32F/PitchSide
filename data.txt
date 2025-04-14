@@ -1,0 +1,106 @@
+INSERT INTO comptes (login, password) VALUES
+('admin_master','$2y$10$6t10Sm3wvPOtxEhc4Wp0fe4rLV9jiqwbYJzGIDQouf5Ro/Hmevs3G'),
+('admin_tournoi','$2y$10$pEiFsVLx3skIklQ1JpRscuKbq0ALiVF2liyVOHzxCP7.K8Z2XebY.'),
+('user1','$2y$10$0aFFby5jiWZS8urOLBcRFelMgMRTIkmhEm/v5/SfWngQ0ZRw35RE2');
+
+INSERT INTO equipes (nom, ville, photo) VALUES
+('Arsenal', 'Arsene', 'imgs/arsenal.png'),
+('Olympique Lyonnais', 'Lyon', 'imgs/sccm.png'),
+('Marseille', 'Marseille', 'imgs/rcb.png'),
+('Real Madrid', 'Madrid', 'imgs/real.jpg'),
+('Barcelona', 'Barcelone', 'imgs/barcelona.png'),
+('AS Monaco', 'Monaco', 'imgs/acmillan.png');
+
+INSERT INTO joueurs (equipe_id, nom, prenom, date_naissance, position, numero_maillot, date_debut, nationalite, origine, photo) VALUES
+(1, 'Mbappé', 'Kylian', '1998-12-20', 'attaquant', 7, '2017-08-01', 'Française', 'Française', 'imgs/neymar.jpeg'),
+(1, 'Messi', 'mio', '1998-12-20', 'attaquant', 7, '2017-08-01', 'Argentin', 'Argentine', 'imgs/messi.jpeg'),
+(2, 'Dembélé', 'Ousmane', '1997-05-15', 'ailier_droit', 11, '2017-07-01', 'Française', 'Française', 'imgs/zh.jpg'),
+(3, 'Payet', 'Dimitri', '1987-03-29', 'milieu_offensif', 10, '2015-07-01', 'Française', 'Française', 'imgs/zh.jpg'),
+(4, 'Ben Yedder', 'Wissam', '1990-08-12', 'attaquant', 9, '2019-08-01', 'Française', 'Française', 'imgs/nfati.png'),
+(4, 'Critiano', 'Ronaldo', '1998-12-20', 'attaquant', 7, '2017-08-01', 'Portuguais', 'Portugale', 'imgs/ronaldo.jpeg');
+
+INSERT INTO stades (nom, ville, capacite) VALUES
+('Parc des Princes', 'Paris', 48869),
+('Groupama Stadium', 'Lyon', 59186),
+('Stade Vélodrome', 'Marseille', 67234),
+('Stade Louis-II', 'Monaco', 18523);
+
+INSERT INTO staff (equipe_id, nom, prenom, date_naissance, poste, date_debut) VALUES
+(1, 'Tuchel', 'Thomas', '1973-08-29', 'Entraineur_principal', '2018-07-01'),
+(2, 'Genesio', 'Bruno', '1966-08-01', 'Entraineur_principal', '2015-06-01'),
+(3, 'Sampaoli', 'Jorge', '1960-03-13', 'Entraineur_principal', '2021-03-01'),
+(4, 'Niko', 'Kovac', '1971-10-15', 'Entraineur_principal', '2020-07-01');
+
+INSERT INTO arbitres (nom, grade) VALUES
+('M. Lannoy', 'FIFA'),
+('M. Buquet', 'Ligue 1'),
+('M. Turpin', 'FIFA'),
+('M. Amel', 'Ligue 1');
+
+
+INSERT INTO publications (title, message, photo) VALUES
+('Le PSG au sommet', 'Le PSG continue sa domination en Ligue 1.', 'imgs/news.png'),
+('OM remporte le Classico', 'L\'Olympique de Marseille a battu le PSG 2-1 lors du dernier match.', 'imgs/hh.png');
+
+INSERT INTO types_tournois (nom) VALUES
+('Botola Pro'),
+('Coupe du Trone');
+
+
+INSERT INTO tournois (type_id, date_debut, date_fin) VALUES
+(1, '2025-09-01', '2025-12-10'),
+(2, '2025-08-01', '2025-05-30');
+
+INSERT INTO matches (id_admin, tournois_id, stade_id, arbitre_id, equipe_domicile_id, equipe_exterieur_id, heure_debut, date_match, etat) VALUES
+(1, 1, 1, 1, 1, 2, '20:00:00', '2025-09-05', 'prevu'),
+(2, 2, 3, 2, 3, 4, '19:45:00', '2025-08-10', 'prevu');
+
+INSERT INTO participations (match_id, equipe_id, joueur_id, titulaire, position) VALUES
+(1, 1, 1, TRUE, 'attaquant'),
+(1, 2, 2, TRUE, 'ailier_droit'),
+(2, 3, 3, TRUE, 'milieu_offensif');
+
+INSERT INTO abonnement (utilisateur_id, type, reference_id) VALUES
+(2, 'match', 1),
+(3, 'equipe', 2);
+
+
+INSERT INTO classement_equipes (tournoi_id, equipe_id, points, matchs_joues, victoires, defaites, nuls, buts_marques, buts_encaisse, saison) VALUES
+(1, 1, 6, 2, 2, 0, 0, 4, 1, 2025),
+(1, 2, 3, 2, 1, 1, 0, 3, 2, 2025);
+
+INSERT INTO knockout_stage (tournois_id, phase, match_id, saison) VALUES
+(1, '16e de finale', 1, 2025),
+(1, '8e de finale', 2, 2025);
+
+
+INSERT INTO votes (user_id, match_id, voted_team_id) VALUES
+(2, 1, 1),
+(3, 2, 3);
+
+INSERT INTO joueur_statistics (match_id, joueur_id, dribbles_reussis, interceptions, passes_decisives, tirs_cadres, fautes, minutes_jouees) VALUES
+(1, 1, 3, 2, 1, 2, 1, 90),
+(2, 3, 0, 1, 2, 0, 0, 85);
+
+INSERT INTO equipe_statistics (match_id, equipe_id, passes, tirs, corners, penalties, coups_franc, centres, hors_jeu) VALUES
+(1, 1, 500, 15, 8, 2, 5, 6, 3),
+(2, 3, 450, 12, 4, 1, 3, 5, 2);
+
+
+INSERT INTO match_events (match_id, joueur_id, event_type, minute, details) VALUES
+(1, 1, 'but', 23, 'Mbappé marque un superbe tir de l\'extérieur de la surface.'),
+(2, 3, 'carton_jaune', 35, 'Payet reçoit un carton jaune pour un tacle dangereux.');
+
+INSERT INTO commentaires (match_id, user_id, message) VALUES
+(1, 2, 'Quel match incroyable, le PSG a dominé de bout en bout!'),
+(2, 3, 'L\'OM mérite cette victoire, Payet a été incroyable!');
+
+
+INSERT INTO notifications (utilisateur_id, message, reference_type, reference_id, statut) 
+VALUES 
+(1, 'Votre équipe favorite a remporté son dernier match !', 'equipe', 3, 'non_lu'),
+(2, 'Un nouveau match a été programmé pour votre équipe.', 'match', 5, 'non_lu'),
+(3, 'Le tournoi Coupe du Trône commence bientôt !', 'tournoi', 2, 'non_lu'),
+(4, 'Votre équipe a recruté un nouveau joueur.', 'equipe', 7, 'non_lu'),
+(5, 'Le match prévu aujourd\'hui a été annulé.', 'match', 10, 'non_lu'),
+(5, 'La phase finale du tournoi est sur le point de commencer.', 'tournoi', 3, 'non_lu');
